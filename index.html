@@ -1,707 +1,286 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
   <title>Allrepost — Repost arrive le 12 janvier 2026</title>
-  <meta name="description" content="Repost est un service de publication automatique pour augmenter vos vues Instagram. Sortie lundi 12 janvier 2026." />
-  <meta name="theme-color" content="#060814" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Repost est un service de publication automatique pour augmenter vos vues Instagram. Sortie le lundi 12 janvier 2026.">
+  <meta name="theme-color" content="#E1306C">
 
   <style>
     :root{
-      --bg0:#030414;
-      --bg1:#070a22;
-      --card: rgba(255,255,255,.08);
-      --card2: rgba(255,255,255,.06);
-      --border: rgba(255,255,255,.14);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.70);
-      --muted2: rgba(255,255,255,.55);
-      --glow: rgba(160,120,255,.35);
-      --glow2: rgba(80,220,255,.28);
-      --accent: #a78bfa;
-      --accent2: #60a5fa;
-      --ok:#34d399;
-      --shadow: 0 18px 60px rgba(0,0,0,.55);
-      --radius: 22px;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      --pink:#E1306C;
+      --purple:#C13584;
+      --orange:#F56040;
+      --yellow:#FCAF45;
+      --blue:#405DE6;
+      --bg:#ffffff;
+      --text:#111;
+      --muted:#666;
+      --card:#fafafa;
+      --radius:20px;
+      --shadow:0 14px 40px rgba(0,0,0,.12);
+      --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial;
     }
 
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; }
+    *{box-sizing:border-box}
+
     body{
       margin:0;
-      font-family: var(--sans);
-      color: var(--text);
-      background:
-        radial-gradient(1200px 800px at 20% 10%, rgba(167,139,250,.28), transparent 55%),
-        radial-gradient(1000px 700px at 80% 20%, rgba(96,165,250,.22), transparent 60%),
-        radial-gradient(800px 600px at 60% 90%, rgba(52,211,153,.12), transparent 60%),
-        linear-gradient(180deg, var(--bg0), var(--bg1));
-      overflow-x:hidden;
-    }
-
-    /* Background layers */
-    .stars, .nebula, .grid {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .stars{
-      background-image:
-        radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,.8) 50%, transparent 60%),
-        radial-gradient(1px 1px at 80px 90px, rgba(255,255,255,.7) 50%, transparent 60%),
-        radial-gradient(1px 1px at 140px 60px, rgba(255,255,255,.6) 50%, transparent 60%),
-        radial-gradient(1px 1px at 200px 120px, rgba(255,255,255,.8) 50%, transparent 60%),
-        radial-gradient(1px 1px at 260px 40px, rgba(255,255,255,.65) 50%, transparent 60%),
-        radial-gradient(1px 1px at 320px 110px, rgba(255,255,255,.55) 50%, transparent 60%);
-      background-size: 360px 160px;
-      opacity: .55;
-      animation: drift 26s linear infinite;
-      filter: drop-shadow(0 0 6px rgba(255,255,255,.15));
-    }
-
-    .nebula{
-      background:
-        radial-gradient(900px 500px at 15% 55%, rgba(167,139,250,.18), transparent 65%),
-        radial-gradient(700px 420px at 78% 52%, rgba(96,165,250,.14), transparent 64%),
-        radial-gradient(800px 500px at 55% 78%, rgba(80,220,255,.10), transparent 67%);
-      opacity:.9;
-      mix-blend-mode: screen;
-      animation: breathe 10s ease-in-out infinite;
-    }
-
-    .grid{
-      background-image:
-        linear-gradient(to right, rgba(255,255,255,.045) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,255,255,.045) 1px, transparent 1px);
-      background-size: 64px 64px;
-      mask-image: radial-gradient(60% 55% at 50% 50%, rgba(0,0,0,.95), transparent 70%);
-      opacity:.55;
-      transform: perspective(900px) rotateX(65deg) translateY(280px);
-      filter: blur(.2px);
-      animation: gridMove 14s linear infinite;
-    }
-
-    @keyframes drift { to { transform: translate3d(-360px, -160px, 0); } }
-    @keyframes breathe { 0%,100%{ transform: scale(1); opacity:.85 } 50%{ transform: scale(1.03); opacity:1 } }
-    @keyframes gridMove { to { background-position: 0 64px, 0 64px; } }
-
-    /* Layout */
-    .wrap{
-      position: relative;
-      z-index: 2;
-      min-height: 100vh;
+      font-family:var(--font);
+      min-height:100vh;
+      background:linear-gradient(135deg,
+        var(--yellow),
+        var(--orange),
+        var(--pink),
+        var(--purple),
+        var(--blue)
+      );
       display:flex;
       align-items:center;
       justify-content:center;
-      padding: 28px 18px 54px;
+      padding:20px;
     }
 
-    .shell{
-      width: min(980px, 100%);
-      display:grid;
-      gap: 18px;
+    .app{
+      background:var(--bg);
+      width:min(980px,100%);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
     }
 
     header{
       display:flex;
       align-items:center;
-      justify-content:space-between;
       gap:16px;
-      padding: 14px 16px;
-      border-radius: 16px;
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.10);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 12px 40px rgba(0,0,0,.35);
+      padding:22px 26px;
+      border-bottom:1px solid #eee;
     }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width: 0;
+    .logo{
+      width:56px;
+      height:56px;
+      object-fit:contain;
     }
 
-    .brand .name{
-      display:flex;
-      flex-direction:column;
-      line-height:1.1;
-      min-width:0;
-    }
-
-    .brand strong{
-      font-size: 14px;
-      letter-spacing:.2px;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
+    .brand h1{
+      margin:0;
+      font-size:24px;
+      font-weight:800;
     }
 
     .brand span{
-      font-size: 12px;
-      color: var(--muted2);
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
+      font-size:13px;
+      color:var(--muted);
     }
 
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
-      font-family: var(--mono);
-      font-size: 12px;
-      color: rgba(255,255,255,.80);
-      user-select:none;
-    }
-
-    .dot{
-      width:8px;height:8px;border-radius:999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 0 4px rgba(167,139,250,.18), 0 0 18px rgba(96,165,250,.35);
-    }
-
-    .grid2{
+    main{
+      padding:36px 28px;
       display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap: 18px;
+      grid-template-columns:1.2fr .8fr;
+      gap:28px;
     }
 
-    @media (max-width: 860px){
-      .grid2{ grid-template-columns: 1fr; }
+    @media(max-width:820px){
+      main{grid-template-columns:1fr}
+    }
+
+    .badge{
+      display:inline-block;
+      padding:6px 14px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:800;
+      color:white;
+      background:linear-gradient(135deg,
+        var(--orange),
+        var(--pink),
+        var(--purple)
+      );
+      margin-bottom:16px;
+    }
+
+    h2{
+      margin:0 0 12px;
+      font-size:36px;
+      line-height:1.1;
+    }
+
+    p{
+      line-height:1.6;
+      color:#333;
+      max-width:60ch;
+    }
+
+    .actions{
+      margin-top:22px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    button{
+      border:none;
+      border-radius:16px;
+      padding:14px 20px;
+      font-weight:700;
+      font-size:14px;
+      cursor:pointer;
+    }
+
+    .primary{
+      color:white;
+      background:linear-gradient(135deg,
+        var(--orange),
+        var(--pink),
+        var(--purple)
+      );
+    }
+
+    .secondary{
+      background:#eee;
     }
 
     .card{
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
-      border: 1px solid var(--border);
-      backdrop-filter: blur(12px);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
+      background:var(--card);
+      border-radius:22px;
+      padding:22px;
+      box-shadow:var(--shadow);
     }
 
-    .card::before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      background:
-        radial-gradient(420px 220px at 20% 10%, rgba(167,139,250,.30), transparent 60%),
-        radial-gradient(420px 220px at 80% 20%, rgba(96,165,250,.22), transparent 60%),
-        radial-gradient(460px 240px at 50% 95%, rgba(80,220,255,.14), transparent 65%);
-      opacity:.8;
-      pointer-events:none;
-      filter: blur(8px);
-    }
-
-    .card > *{ position:relative; z-index:1; }
-
-    .hero{
-      padding: 26px 22px 22px;
-    }
-
-    .kicker{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(0,0,0,.25);
-      border: 1px solid rgba(255,255,255,.10);
-      color: rgba(255,255,255,.82);
-      font-size: 12px;
-      letter-spacing:.2px;
-    }
-
-    .kicker .spark{
-      width: 18px; height: 18px; border-radius: 8px;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.9), rgba(167,139,250,.8), rgba(96,165,250,.35));
-      box-shadow: 0 0 20px rgba(167,139,250,.35), 0 0 44px rgba(96,165,250,.20);
-    }
-
-    h1{
-      margin: 14px 0 10px;
-      font-size: clamp(28px, 4vw, 44px);
-      letter-spacing: -0.02em;
-      line-height: 1.05;
-    }
-
-    .subtitle{
-      margin: 0 0 16px;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.55;
-      max-width: 60ch;
-    }
-
-    .ctaRow{
-      display:flex;
-      flex-wrap:wrap;
-      gap: 10px;
-      align-items:center;
-      margin-top: 10px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      text-decoration:none;
-      font-weight: 650;
-      letter-spacing:.2px;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
-      user-select:none;
-    }
-    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.085); border-color: rgba(255,255,255,.22); }
-    .btn:active{ transform: translateY(0px); }
-
-    .btn.primary{
-      background: linear-gradient(135deg, rgba(167,139,250,.95), rgba(96,165,250,.85));
-      border-color: rgba(255,255,255,.18);
-      box-shadow: 0 10px 30px rgba(96,165,250,.18), 0 10px 40px rgba(167,139,250,.18);
-      color: rgba(10,12,24,.98);
-    }
-    .btn.primary:hover{ filter: brightness(1.03); }
-
-    .smallNote{
-      font-size: 12px;
-      color: rgba(255,255,255,.62);
-      font-family: var(--mono);
-      padding: 10px 0 0;
-    }
-
-    .side{
-      padding: 18px;
-    }
-
-    .panel{
-      border-radius: 18px;
-      background: rgba(0,0,0,.18);
-      border: 1px solid rgba(255,255,255,.10);
-      padding: 16px;
-      box-shadow: 0 14px 40px rgba(0,0,0,.28);
-    }
-
-    .panel h2{
-      margin: 0 0 10px;
-      font-size: 15px;
-      letter-spacing: .2px;
-    }
-
-    .when{
-      display:flex;
-      align-items:baseline;
-      justify-content:space-between;
-      gap:12px;
-      padding: 12px 12px;
-      border-radius: 16px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.10);
-      margin-top: 10px;
-    }
-
-    .when .label{
-      color: rgba(255,255,255,.72);
-      font-size: 12px;
-      font-family: var(--mono);
-    }
-
-    .when .date{
-      font-size: 14px;
-      font-weight: 750;
-      letter-spacing:.2px;
+    .date{
+      font-weight:800;
+      font-size:16px;
+      margin-bottom:14px;
     }
 
     .countdown{
-      margin-top: 12px;
       display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
+      grid-template-columns:repeat(4,1fr);
+      gap:10px;
     }
 
-    .tile{
-      padding: 12px 10px;
-      border-radius: 16px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.10);
+    .time{
+      background:#f1f1f1;
+      border-radius:14px;
+      padding:16px 8px;
       text-align:center;
     }
 
-    .tile .num{
-      font-size: 20px;
-      font-weight: 850;
-      letter-spacing:.4px;
-      font-family: var(--mono);
+    .time strong{
+      display:block;
+      font-size:22px;
     }
 
-    .tile .txt{
-      margin-top: 4px;
-      font-size: 11px;
-      color: rgba(255,255,255,.62);
-      font-family: var(--mono);
-    }
-
-    .list{
-      margin: 14px 0 0;
-      padding: 0;
-      list-style:none;
-      display:grid;
-      gap: 10px;
-    }
-
-    .item{
-      display:flex;
-      gap: 10px;
-      padding: 12px 12px;
-      border-radius: 16px;
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.10);
-    }
-    .badge{
-      flex: 0 0 auto;
-      width: 30px; height: 30px;
-      border-radius: 12px;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.9), rgba(52,211,153,.55), rgba(96,165,250,.20));
-      box-shadow: 0 0 22px rgba(52,211,153,.16);
-      display:grid;
-      place-items:center;
-      font-family: var(--mono);
-      font-size: 12px;
-      color: rgba(0,0,0,.75);
-      font-weight: 900;
-    }
-    .item .t{
-      font-size: 13px;
-      font-weight: 700;
-      margin: 1px 0 2px;
-    }
-    .item .d{
-      font-size: 12px;
-      color: rgba(255,255,255,.68);
-      line-height: 1.4;
+    .time span{
+      font-size:11px;
+      color:#555;
     }
 
     footer{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 12px;
-      padding: 12px 14px;
-      color: rgba(255,255,255,.55);
-      font-size: 12px;
-    }
-    footer code{
-      font-family: var(--mono);
-      color: rgba(255,255,255,.70);
-    }
-
-    /* Logo SVG sizing */
-    .logo{
-      width: 44px;
-      height: 44px;
-      flex: 0 0 auto;
-      filter: drop-shadow(0 10px 18px rgba(0,0,0,.35));
-    }
-
-    /* Toast */
-    .toast{
-      position: fixed;
-      left: 50%;
-      bottom: 18px;
-      transform: translateX(-50%);
-      background: rgba(0,0,0,.55);
-      border: 1px solid rgba(255,255,255,.14);
-      color: rgba(255,255,255,.9);
-      padding: 10px 12px;
-      border-radius: 14px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 16px 50px rgba(0,0,0,.45);
-      font-size: 12px;
-      opacity: 0;
-      pointer-events:none;
-      transition: opacity .18s ease, transform .18s ease;
-      z-index: 5;
-      max-width: min(520px, calc(100% - 24px));
       text-align:center;
-    }
-    .toast.show{
-      opacity: 1;
-      transform: translateX(-50%) translateY(-4px);
+      font-size:12px;
+      color:#777;
+      padding:18px;
+      border-top:1px solid #eee;
     }
 
-    /* Reduced motion */
-    @media (prefers-reduced-motion: reduce){
-      .stars,.nebula,.grid{ animation:none !important; }
-      .btn{ transition:none; }
+    .toast{
+      position:fixed;
+      bottom:20px;
+      left:50%;
+      transform:translateX(-50%);
+      background:#111;
+      color:white;
+      padding:10px 16px;
+      border-radius:12px;
+      opacity:0;
+      transition:.2s;
+      font-size:13px;
     }
+
+    .toast.show{opacity:1}
   </style>
 </head>
 
 <body>
-  <div class="stars"></div>
-  <div class="nebula"></div>
-  <div class="grid"></div>
+  <div class="app">
 
-  <div class="wrap">
-    <div class="shell">
-      <header>
-        <div class="brand">
-          <!-- Logo "Repost" maison (SVG) -->
-          <svg class="logo" viewBox="0 0 64 64" aria-label="Logo Repost" role="img">
-            <defs>
-              <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#a78bfa"/>
-                <stop offset="1" stop-color="#60a5fa"/>
-              </linearGradient>
-              <radialGradient id="g2" cx="30%" cy="30%" r="70%">
-                <stop offset="0" stop-color="rgba(255,255,255,0.95)"/>
-                <stop offset="0.35" stop-color="rgba(255,255,255,0.25)"/>
-                <stop offset="1" stop-color="rgba(255,255,255,0)"/>
-              </radialGradient>
-            </defs>
+    <header>
+      <img src="logo-allrepost.png" alt="Logo Allrepost" class="logo">
 
-            <!-- planète -->
-            <circle cx="32" cy="32" r="18" fill="url(#g1)" opacity="0.95"/>
-            <circle cx="28" cy="26" r="14" fill="url(#g2)" opacity="0.75"/>
-
-            <!-- anneau -->
-            <ellipse cx="32" cy="35" rx="26" ry="10" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="3"/>
-            <ellipse cx="32" cy="35" rx="26" ry="10" fill="none" stroke="rgba(96,165,250,0.25)" stroke-width="2" stroke-dasharray="6 8"/>
-
-            <!-- flèche "repost" -->
-            <path d="M25 24h12c6 0 10 4 10 10" fill="none" stroke="rgba(0,0,0,0.35)" stroke-width="5" stroke-linecap="round"/>
-            <path d="M25 24h12c6 0 10 4 10 10" fill="none" stroke="rgba(255,255,255,0.78)" stroke-width="3" stroke-linecap="round"/>
-            <path d="M45 34l-4-4m4 4l-5 2" fill="none" stroke="rgba(255,255,255,0.78)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-
-          <div class="name">
-            <strong>Allrepost</strong>
-            <span>Repost — publication automatique</span>
-          </div>
-        </div>
-
-        <div class="pill" title="Compte à rebours jusqu'à la sortie">
-          <span class="dot"></span>
-          <span id="statusText">Sortie : lundi 12 janvier 2026</span>
-        </div>
-      </header>
-
-      <div class="grid2">
-        <section class="card">
-          <div class="hero">
-            <div class="kicker">
-              <span class="spark"></span>
-              <span>Mode Espace • Landing page</span>
-            </div>
-
-            <h1>
-              Repost arrive le <span style="text-shadow: 0 0 24px rgba(167,139,250,.35)">lundi 12 janvier 2026</span>.
-            </h1>
-
-            <p class="subtitle">
-              <strong>Repost</strong> est un service de <strong>publication automatique</strong> pensé pour
-              aider à augmenter vos <strong>vues Instagram</strong>, grâce à une programmation simple et régulière.
-            </p>
-
-            <div class="ctaRow">
-              <a class="btn primary" href="#countdown" id="btnCountdown" aria-label="Voir le compte à rebours">
-                🚀 Voir le compte à rebours
-              </a>
-              <button class="btn" id="btnCopyDate" type="button" aria-label="Copier la date de sortie">
-                📅 Copier la date
-              </button>
-              <button class="btn" id="btnCopyText" type="button" aria-label="Copier un texte d'annonce">
-                ✨ Copier un texte
-              </button>
-            </div>
-
-            <div class="smallNote">
-              Projet GitHub Pages : <span style="color:rgba(255,255,255,.85); font-weight:700;">Allrepost</span> •
-              Une seule page HTML (CSS + JS inclus).
-            </div>
-          </div>
-
-          <footer>
-            <span>© <span id="year"></span> Allrepost</span>
-            <span><code>index.html</code> prêt à publier</span>
-          </footer>
-        </section>
-
-        <aside class="card">
-          <div class="side">
-            <div class="panel" id="countdown">
-              <h2>Compte à rebours</h2>
-
-              <div class="when">
-                <div>
-                  <div class="label">Date de sortie</div>
-                  <div class="date">Lundi 12 janvier 2026 • 00:00</div>
-                </div>
-                <div class="label" id="tzLabel">Europe/Brussels</div>
-              </div>
-
-              <div class="countdown" aria-label="Compte à rebours">
-                <div class="tile">
-                  <div class="num" id="dd">—</div>
-                  <div class="txt">jours</div>
-                </div>
-                <div class="tile">
-                  <div class="num" id="hh">—</div>
-                  <div class="txt">heures</div>
-                </div>
-                <div class="tile">
-                  <div class="num" id="mm">—</div>
-                  <div class="txt">minutes</div>
-                </div>
-                <div class="tile">
-                  <div class="num" id="ss">—</div>
-                  <div class="txt">secondes</div>
-                </div>
-              </div>
-
-              <ul class="list">
-                <li class="item">
-                  <div class="badge">1</div>
-                  <div>
-                    <div class="t">Automatique</div>
-                    <div class="d">Planifie tes publications pour garder un rythme régulier.</div>
-                  </div>
-                </li>
-                <li class="item">
-                  <div class="badge">2</div>
-                  <div>
-                    <div class="t">Simple</div>
-                    <div class="d">Une interface claire, pensée pour aller droit au but.</div>
-                  </div>
-                </li>
-                <li class="item">
-                  <div class="badge">3</div>
-                  <div>
-                    <div class="t">Objectif : vues</div>
-                    <div class="d">Optimise ta présence pour augmenter la visibilité de tes contenus.</div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </aside>
+      <div class="brand">
+        <h1>Allrepost</h1>
+        <span>Repost • publication automatique Instagram</span>
       </div>
-    </div>
+    </header>
+
+    <main>
+      <section>
+        <div class="badge">NOUVEAU SERVICE</div>
+        <h2>Augmente tes vues Instagram automatiquement</h2>
+
+        <p>
+          <strong>Repost</strong> est un service de <strong>publication automatique</strong>
+          conçu pour améliorer la visibilité de ton contenu Instagram,
+          sans effort et avec régularité.
+        </p>
+
+        <div class="actions">
+          <button class="primary" onclick="scrollToCountdown()">Voir le compte à rebours</button>
+          <button class="secondary" onclick="copyText()">Copier le texte d’annonce</button>
+        </div>
+      </section>
+
+      <aside class="card" id="countdown">
+        <div class="date">📅 Lundi 12 janvier 2026</div>
+
+        <div class="countdown">
+          <div class="time"><strong id="d">--</strong><span>jours</span></div>
+          <div class="time"><strong id="h">--</strong><span>heures</span></div>
+          <div class="time"><strong id="m">--</strong><span>minutes</span></div>
+          <div class="time"><strong id="s">--</strong><span>secondes</span></div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      © 2026 Allrepost — Site statique prêt pour GitHub Pages
+    </footer>
   </div>
 
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="toast" id="toast">Copié ✔</div>
 
   <script>
-    // ===== Config =====
-    // Date de sortie: lundi 12 janvier 2026 à 00:00 (Europe/Brussels).
-    // En JS, on utilise un ISO avec offset +01:00 pour coller à Bruxelles en hiver.
-    const LAUNCH_ISO = "2026-01-12T00:00:00+01:00";
-    const launchDate = new Date(LAUNCH_ISO);
+    const launch = new Date("2026-01-12T00:00:00+01:00");
 
-    // ===== Helpers =====
-    const $ = (id) => document.getElementById(id);
-
-    function pad2(n){ return String(n).padStart(2, "0"); }
-
-    function showToast(msg){
-      const t = $("toast");
-      t.textContent = msg;
-      t.classList.add("show");
-      clearTimeout(showToast._timer);
-      showToast._timer = setTimeout(() => t.classList.remove("show"), 1800);
-    }
-
-    async function copyToClipboard(text){
-      try{
-        await navigator.clipboard.writeText(text);
-        showToast("Copié ✔");
-      }catch(e){
-        // Fallback
-        const ta = document.createElement("textarea");
-        ta.value = text;
-        ta.style.position = "fixed";
-        ta.style.opacity = "0";
-        document.body.appendChild(ta);
-        ta.focus();
-        ta.select();
-        try{
-          document.execCommand("copy");
-          showToast("Copié ✔");
-        }catch(err){
-          showToast("Impossible de copier (permissions).");
-        }
-        document.body.removeChild(ta);
-      }
-    }
-
-    // ===== Countdown =====
-    function tick(){
+    function update(){
       const now = new Date();
-      let diff = launchDate.getTime() - now.getTime();
+      let diff = launch - now;
+      if(diff < 0) diff = 0;
 
-      const status = $("statusText");
-
-      if(diff <= 0){
-        $("dd").textContent = "00";
-        $("hh").textContent = "00";
-        $("mm").textContent = "00";
-        $("ss").textContent = "00";
-        status.textContent = "✅ Disponible maintenant";
-        return;
-      }
-
-      const sec = Math.floor(diff / 1000);
-      const days = Math.floor(sec / 86400);
-      const hours = Math.floor((sec % 86400) / 3600);
-      const mins = Math.floor((sec % 3600) / 60);
-      const secs = sec % 60;
-
-      $("dd").textContent = pad2(days);
-      $("hh").textContent = pad2(hours);
-      $("mm").textContent = pad2(mins);
-      $("ss").textContent = pad2(secs);
-
-      status.textContent = "Sortie : lundi 12 janvier 2026";
+      const s = Math.floor(diff / 1000);
+      document.getElementById("d").textContent = String(Math.floor(s / 86400)).padStart(2,"0");
+      document.getElementById("h").textContent = String(Math.floor((s % 86400) / 3600)).padStart(2,"0");
+      document.getElementById("m").textContent = String(Math.floor((s % 3600) / 60)).padStart(2,"0");
+      document.getElementById("s").textContent = String(s % 60).padStart(2,"0");
     }
 
-    // ===== Buttons =====
-    $("btnCopyDate").addEventListener("click", () => {
-      copyToClipboard("Repost sort le lundi 12 janvier 2026.");
-    });
+    setInterval(update, 1000);
+    update();
 
-    $("btnCopyText").addEventListener("click", () => {
-      const text =
-`🚀 Repost arrive le lundi 12 janvier 2026 !
-Un service de publication automatique pour booster tes vues Instagram.
-➡️ Suis Allrepost pour ne pas rater la sortie.`;
-      copyToClipboard(text);
-    });
+    function scrollToCountdown(){
+      document.getElementById("countdown").scrollIntoView({behavior:"smooth"});
+    }
 
-    // ===== Init =====
-    $("year").textContent = new Date().getFullYear();
-    // Affiche le fuseau si dispo
-    try{
-      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-      if(tz) $("tzLabel").textContent = tz;
-    }catch(_){}
-
-    tick();
-    setInterval(tick, 250);
+    function copyText(){
+      const text = "🚀 Repost arrive le lundi 12 janvier 2026 ! Un service de publication automatique pour booster tes vues Instagram.";
+      navigator.clipboard.writeText(text);
+      const t = document.getElementById("toast");
+      t.classList.add("show");
+      setTimeout(() => t.classList.remove("show"), 1500);
+    }
   </script>
 </body>
 </html>
